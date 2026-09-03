@@ -1,0 +1,2631 @@
+{
+	"version": "8",
+	"dialect": "postgres",
+	"id": "c9270117-7093-4a5e-a63d-43615d5ad28f",
+	"prevIds": ["00000000-0000-0000-0000-000000000000"],
+	"ddl": [
+		{
+			"isRlsEnabled": false,
+			"name": "roles",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "users",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "accounts",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "sessions",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "verifications",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "doctors",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "patients",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "appointments",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "medical_records",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "bills",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"isRlsEnabled": false,
+			"name": "audit_logs",
+			"entityType": "tables",
+			"schema": "public"
+		},
+		{
+			"type": "serial",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "roles"
+		},
+		{
+			"type": "varchar(50)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "name",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "roles"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "description",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "roles"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "roles"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "roles"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "integer",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "role_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "varchar(255)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "name",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "varchar(255)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "email",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "boolean",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "false",
+			"generated": null,
+			"identity": null,
+			"name": "email_verified",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "varchar(500)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "image",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "varchar(20)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "phone",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "boolean",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "true",
+			"generated": null,
+			"identity": null,
+			"name": "is_active",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "last_login_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "deleted_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "user_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "varchar(50)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "provider",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "varchar(255)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "provider_account_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "varchar(255)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "password",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "access_token",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "refresh_token",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "id_token",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "access_token_expires_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "refresh_token_expires_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "scope",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "varchar(50)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "token_type",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "user_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"type": "varchar(255)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "token",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"type": "varchar(45)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "ip_address",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "user_agent",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "expires_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "verifications"
+		},
+		{
+			"type": "varchar(255)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "identifier",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "verifications"
+		},
+		{
+			"type": "varchar(50)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "'GENERIC'",
+			"generated": null,
+			"identity": null,
+			"name": "type",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "verifications"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "value",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "verifications"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "expires_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "verifications"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "verifications"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "verifications"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "user_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"type": "varchar(150)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "specialization",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"type": "varchar(100)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "department",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"type": "varchar(100)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "license_number",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"type": "numeric(10,2)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "consultation_fee",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "deleted_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "varchar(100)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "first_name",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "varchar(100)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "last_name",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "date",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "date_of_birth",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "varchar(20)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "gender",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "varchar(20)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "contact_number",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "varchar(255)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "email",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "address",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "varchar(5)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "blood_group",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "varchar(100)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "emergency_contact_name",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "varchar(20)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "emergency_contact_phone",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "deleted_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "patient_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "doctor_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "created_by",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "date",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "appointment_date",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "time",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "start_time",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "time",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "end_time",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "varchar(30)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "'SCHEDULED'",
+			"generated": null,
+			"identity": null,
+			"name": "status",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "reason",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "checked_in_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "completed_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "cancelled_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "cancelled_reason",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "deleted_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "patient_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "doctor_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "appointment_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "diagnosis",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "prescription",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "treatment_plan",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "varchar(500)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "report_file_url",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "deleted_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "patient_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "appointment_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "numeric(10,2)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "total_amount",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "numeric(10,2)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "'0'",
+			"generated": null,
+			"identity": null,
+			"name": "amount_paid",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "varchar(20)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "'PENDING'",
+			"generated": null,
+			"identity": null,
+			"name": "status",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "varchar(50)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "payment_method",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "invoice_date",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "paid_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "updated_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "deleted_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "gen_random_uuid()",
+			"generated": null,
+			"identity": null,
+			"name": "id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "user_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"type": "varchar(50)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "action",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"type": "varchar(100)",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "table_name",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"type": "uuid",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "record_id",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"type": "jsonb",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "old_data",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"type": "jsonb",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "new_data",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"type": "varchar(45)",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "ip_address",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"type": "text",
+			"typeSchema": null,
+			"notNull": false,
+			"dimensions": 0,
+			"default": null,
+			"generated": null,
+			"identity": null,
+			"name": "user_agent",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"type": "timestamp with time zone",
+			"typeSchema": null,
+			"notNull": true,
+			"dimensions": 0,
+			"default": "now()",
+			"generated": null,
+			"identity": null,
+			"name": "created_at",
+			"entityType": "columns",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "email",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": true,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "users_email_unique",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "role_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "users_role_id_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "deleted_at",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "users_deleted_at_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "provider",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				},
+				{
+					"value": "provider_account_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": true,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "accounts_provider_account_unique",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "user_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "accounts_user_id_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "token",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": true,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "sessions_token_unique",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "user_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "sessions_user_id_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "expires_at",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "sessions_expires_at_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "identifier",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "verifications_identifier_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "verifications"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "expires_at",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "verifications_expires_at_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "verifications"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "user_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": true,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "doctors_user_id_unique",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "license_number",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": true,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "doctors_license_number_unique",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "department",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "doctors_department_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "specialization",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "doctors_specialization_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "email",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": true,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "patients_email_unique",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "last_name",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "patients_last_name_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "contact_number",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "patients_contact_number_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "deleted_at",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "patients_deleted_at_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "patients"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "doctor_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				},
+				{
+					"value": "appointment_date",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "appointments_doctor_date_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "patient_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "appointments_patient_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "status",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "appointments_status_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "appointment_date",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "appointments_date_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "appointment_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": true,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "medical_records_appointment_unique",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "patient_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "medical_records_patient_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "doctor_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "medical_records_doctor_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "created_at",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "medical_records_created_at_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "appointment_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": true,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "bills_appointment_unique",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "patient_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "bills_patient_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "status",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "bills_status_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "invoice_date",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "bills_invoice_date_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "user_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "audit_logs_user_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "table_name",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				},
+				{
+					"value": "record_id",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "audit_logs_record_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"nameExplicit": true,
+			"columns": [
+				{
+					"value": "created_at",
+					"isExpression": false,
+					"asc": true,
+					"nullsFirst": false,
+					"opclass": null
+				}
+			],
+			"isUnique": false,
+			"where": null,
+			"with": "",
+			"method": "btree",
+			"concurrently": false,
+			"name": "audit_logs_created_at_idx",
+			"entityType": "indexes",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["role_id"],
+			"schemaTo": "public",
+			"tableTo": "roles",
+			"columnsTo": ["id"],
+			"onUpdate": "CASCADE",
+			"onDelete": "RESTRICT",
+			"name": "users_role_id_roles_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "users"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["user_id"],
+			"schemaTo": "public",
+			"tableTo": "users",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "CASCADE",
+			"name": "accounts_user_id_users_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "accounts"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["user_id"],
+			"schemaTo": "public",
+			"tableTo": "users",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "CASCADE",
+			"name": "sessions_user_id_users_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "sessions"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["user_id"],
+			"schemaTo": "public",
+			"tableTo": "users",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "RESTRICT",
+			"name": "doctors_user_id_users_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["patient_id"],
+			"schemaTo": "public",
+			"tableTo": "patients",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "RESTRICT",
+			"name": "appointments_patient_id_patients_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["doctor_id"],
+			"schemaTo": "public",
+			"tableTo": "doctors",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "RESTRICT",
+			"name": "appointments_doctor_id_doctors_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["created_by"],
+			"schemaTo": "public",
+			"tableTo": "users",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "SET NULL",
+			"name": "appointments_created_by_users_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["patient_id"],
+			"schemaTo": "public",
+			"tableTo": "patients",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "RESTRICT",
+			"name": "medical_records_patient_id_patients_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["doctor_id"],
+			"schemaTo": "public",
+			"tableTo": "doctors",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "RESTRICT",
+			"name": "medical_records_doctor_id_doctors_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["appointment_id"],
+			"schemaTo": "public",
+			"tableTo": "appointments",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "SET NULL",
+			"name": "medical_records_appointment_id_appointments_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "medical_records"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["patient_id"],
+			"schemaTo": "public",
+			"tableTo": "patients",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "RESTRICT",
+			"name": "bills_patient_id_patients_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["appointment_id"],
+			"schemaTo": "public",
+			"tableTo": "appointments",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "SET NULL",
+			"name": "bills_appointment_id_appointments_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["user_id"],
+			"schemaTo": "public",
+			"tableTo": "users",
+			"columnsTo": ["id"],
+			"onUpdate": "NO ACTION",
+			"onDelete": "RESTRICT",
+			"name": "audit_logs_user_id_users_id_fkey",
+			"entityType": "fks",
+			"schema": "public",
+			"table": "audit_logs"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "roles_pkey",
+			"schema": "public",
+			"table": "roles",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "users_pkey",
+			"schema": "public",
+			"table": "users",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "accounts_pkey",
+			"schema": "public",
+			"table": "accounts",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "sessions_pkey",
+			"schema": "public",
+			"table": "sessions",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "verifications_pkey",
+			"schema": "public",
+			"table": "verifications",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "doctors_pkey",
+			"schema": "public",
+			"table": "doctors",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "patients_pkey",
+			"schema": "public",
+			"table": "patients",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "appointments_pkey",
+			"schema": "public",
+			"table": "appointments",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "medical_records_pkey",
+			"schema": "public",
+			"table": "medical_records",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "bills_pkey",
+			"schema": "public",
+			"table": "bills",
+			"entityType": "pks"
+		},
+		{
+			"columns": ["id"],
+			"nameExplicit": false,
+			"name": "audit_logs_pkey",
+			"schema": "public",
+			"table": "audit_logs",
+			"entityType": "pks"
+		},
+		{
+			"nameExplicit": false,
+			"columns": ["name"],
+			"nullsNotDistinct": false,
+			"name": "roles_name_key",
+			"schema": "public",
+			"table": "roles",
+			"entityType": "uniques"
+		},
+		{
+			"value": "\"consultation_fee\" >= 0",
+			"name": "doctors_consultation_fee_non_negative",
+			"entityType": "checks",
+			"schema": "public",
+			"table": "doctors"
+		},
+		{
+			"value": "\"start_time\" < \"end_time\"",
+			"name": "appointments_time_order",
+			"entityType": "checks",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"value": "(\"status\" <> 'CANCELLED') OR (\"cancelled_at\" IS NOT NULL)",
+			"name": "appointments_cancelled_has_reason",
+			"entityType": "checks",
+			"schema": "public",
+			"table": "appointments"
+		},
+		{
+			"value": "\"total_amount\" >= 0",
+			"name": "bills_total_amount_non_negative",
+			"entityType": "checks",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"value": "\"amount_paid\" >= 0",
+			"name": "bills_amount_paid_non_negative",
+			"entityType": "checks",
+			"schema": "public",
+			"table": "bills"
+		},
+		{
+			"value": "\"amount_paid\" <= \"total_amount\"",
+			"name": "bills_amount_paid_not_over_total",
+			"entityType": "checks",
+			"schema": "public",
+			"table": "bills"
+		}
+	],
+	"renames": []
+}

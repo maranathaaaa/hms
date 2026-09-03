@@ -1,0 +1,17 @@
+{
+  "name": "monolithflow",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "drizzle-orm": "^1.0.0-rc.4",
+    "zod": "^4.4.3"
+  }
+}
