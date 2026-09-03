@@ -3,6 +3,12 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "bun --filter back-end run dev & bun --filter client run dev",
+    "dev:backend": "bun --filter back-end run dev",
+    "dev:frontend": "bun --filter client run dev"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
