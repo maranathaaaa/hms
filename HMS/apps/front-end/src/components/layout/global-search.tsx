@@ -4,10 +4,12 @@ import { Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { api } from "../../lib/api.ts";
+import { useActorPrefix } from "../../lib/actor.ts";
 import type { Doctor, Paginated, Patient } from "../../lib/types.ts";
 
 export function GlobalSearch() {
 	const navigate = useNavigate();
+	const actorPrefix = useActorPrefix();
 	const [query, setQuery] = useState("");
 	const [open, setOpen] = useState(false);
 	const boxRef = useRef<HTMLDivElement>(null);
@@ -47,10 +49,13 @@ export function GlobalSearch() {
 	const doctors = doctorsData?.data ?? [];
 	const hasResults = patients.length + doctors.length > 0;
 
-	const go = (to: "/patients" | "/doctors", term: string) => {
+	const go = (to: "patients" | "doctors", term: string) => {
 		setQuery("");
 		setOpen(false);
-		navigate({ to, search: { search: term } });
+		navigate({
+			to: `${actorPrefix}/${to}`,
+			search: { search: term },
+		} as never);
 	};
 
 	return (
@@ -89,7 +94,7 @@ export function GlobalSearch() {
 										<button
 											key={p.id}
 											type="button"
-											onClick={() => go("/patients", query.trim())}
+											onClick={() => go("patients", query.trim())}
 											className="flex w-full items-center justify-between gap-3 px-4 py-2 text-left text-sm transition-colors hover:bg-slate-100"
 										>
 											<span className="font-medium text-slate-800">
@@ -111,7 +116,7 @@ export function GlobalSearch() {
 										<button
 											key={d.id}
 											type="button"
-											onClick={() => go("/doctors", query.trim())}
+											onClick={() => go("doctors", query.trim())}
 											className="flex w-full items-center justify-between gap-3 px-4 py-2 text-left text-sm transition-colors hover:bg-slate-100"
 										>
 											<span className="font-medium text-slate-800">

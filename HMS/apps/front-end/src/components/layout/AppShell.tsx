@@ -1,4 +1,5 @@
-import { Link, Navigate, Outlet, useNavigate } from "@tanstack/react-router";
+import { Link, Navigate, useNavigate } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
 	Activity,
@@ -29,55 +30,87 @@ interface NavItem {
 	icon: LucideIcon;
 }
 
-const ALL_NAV: NavItem[] = [
-	{ to: "/dashboard", label: "Dashboard", icon: Activity },
-	{ to: "/patients", label: "Patients", icon: Users },
-	{ to: "/doctors", label: "Doctors", icon: Stethoscope },
-	{ to: "/appointments", label: "Appointments", icon: CalendarDays },
-	{ to: "/calendar", label: "Calendar", icon: CalendarRange },
-	{ to: "/medical-records", label: "Medical Records", icon: FileText },
-	{ to: "/bills", label: "Bills", icon: Receipt },
-	{ to: "/reports", label: "Reports", icon: BarChart3 },
-	{ to: "/users", label: "Users", icon: UserCog },
-	{ to: "/audit-logs", label: "Audit Logs", icon: ScrollText },
+interface PageNavItem {
+	page: string;
+	label: string;
+	icon: LucideIcon;
+}
+
+const ALL_NAV: PageNavItem[] = [
+	{ page: "dashboard", label: "Dashboard", icon: Activity },
+	{ page: "patients", label: "Patients", icon: Users },
+	{ page: "doctors", label: "Doctors", icon: Stethoscope },
+	{ page: "appointments", label: "Appointments", icon: CalendarDays },
+	{ page: "calendar", label: "Calendar", icon: CalendarRange },
+	{ page: "medical-records", label: "Medical Records", icon: FileText },
+	{ page: "bills", label: "Bills", icon: Receipt },
+	{ page: "reports", label: "Reports", icon: BarChart3 },
+	{ page: "users", label: "Users", icon: UserCog },
+	{ page: "audit-logs", label: "Audit Logs", icon: ScrollText },
 ];
 
-const DOCTOR_NAV: NavItem[] = [
-	{ to: "/dashboard", label: "Dashboard", icon: Activity },
-	{ to: "/appointments", label: "Appointments", icon: CalendarDays },
-	{ to: "/calendar", label: "Calendar", icon: CalendarRange },
-	{ to: "/medical-records", label: "Medical Records", icon: FileText },
-	{ to: "/doctor-profile", label: "My Profile", icon: Stethoscope },
+const DOCTOR_NAV: PageNavItem[] = [
+	{ page: "dashboard", label: "Dashboard", icon: Activity },
+	{ page: "appointments", label: "Appointments", icon: CalendarDays },
+	{ page: "calendar", label: "Calendar", icon: CalendarRange },
+	{ page: "medical-records", label: "Medical Records", icon: FileText },
+	{ page: "doctor-profile", label: "My Profile", icon: Stethoscope },
 ];
 
-const RECEPTIONIST_NAV: NavItem[] = [
-	{ to: "/dashboard", label: "Dashboard", icon: Activity },
-	{ to: "/patients", label: "Patients", icon: Users },
-	{ to: "/doctors", label: "Doctors", icon: Stethoscope },
-	{ to: "/appointments", label: "Appointments", icon: CalendarDays },
-	{ to: "/calendar", label: "Calendar", icon: CalendarRange },
-	{ to: "/bills", label: "Bills", icon: Receipt },
+const RECEPTIONIST_NAV: PageNavItem[] = [
+	{ page: "dashboard", label: "Dashboard", icon: Activity },
+	{ page: "patients", label: "Patients", icon: Users },
+	{ page: "doctors", label: "Doctors", icon: Stethoscope },
+	{ page: "appointments", label: "Appointments", icon: CalendarDays },
+	{ page: "calendar", label: "Calendar", icon: CalendarRange },
+	{ page: "bills", label: "Bills", icon: Receipt },
 ];
 
-const ACCOUNTANT_NAV: NavItem[] = [
+const ACCOUNTANT_NAV: PageNavItem[] = [
 	...RECEPTIONIST_NAV,
-	{ to: "/reports", label: "Reports", icon: BarChart3 },
+	{ page: "reports", label: "Reports", icon: BarChart3 },
 ];
+
+function actorSlug(roleId: number): string {
+	switch (roleId) {
+		case ROLE_ID.SUPER_ADMIN:
+			return "super-admin";
+		case ROLE_ID.ADMIN:
+			return "admin";
+		case ROLE_ID.DOCTOR:
+			return "doctor";
+		case ROLE_ID.RECEPTIONIST:
+			return "receptionist";
+		case ROLE_ID.ACCOUNTANT:
+			return "accountant";
+		case ROLE_ID.PATIENT:
+			return "patient";
+		default:
+			return "";
+	}
+}
 
 function navFor(user: SessionUser): NavItem[] {
+	const prefix = `/${actorSlug(user.roleId)}`;
+	let items: PageNavItem[];
 	switch (user.roleId) {
 		case ROLE_ID.SUPER_ADMIN:
 		case ROLE_ID.ADMIN:
-			return ALL_NAV;
+			items = ALL_NAV;
+			break;
 		case ROLE_ID.DOCTOR:
-			return DOCTOR_NAV;
+			items = DOCTOR_NAV;
+			break;
 		case ROLE_ID.RECEPTIONIST:
-			return RECEPTIONIST_NAV;
+			items = RECEPTIONIST_NAV;
+			break;
 		case ROLE_ID.ACCOUNTANT:
-			return ACCOUNTANT_NAV;
+			items = ACCOUNTANT_NAV;
+			break;
 		default:
 			return [];
 	}
+	return items.map((item) => ({ ...item, to: `${prefix}/${item.page}` }));
 }
 
 function roleLabel(user: SessionUser): string {
@@ -97,7 +130,7 @@ function roleLabel(user: SessionUser): string {
 	}
 }
 
-export function AppShell() {
+export function AppShell({ children }: { children: ReactNode }) {
 	const navigate = useNavigate();
 	const { data, isPending } = authClient.useSession();
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -145,7 +178,7 @@ export function AppShell() {
 				{nav.map((item) => (
 					<Link
 						key={item.to}
-						to={item.to}
+						to={item.to as never}
 						activeOptions={{ exact: true }}
 						activeProps={{
 							className: "bg-primary-50 text-primary-700 font-semibold",
@@ -221,7 +254,7 @@ export function AppShell() {
 				>
 					<Menu className="size-4" />
 				</button>
-				<Link to="/dashboard" className="flex items-center gap-2 lg:hidden">
+				<Link to={(nav[0]?.to ?? "/login") as never} className="flex items-center gap-2 lg:hidden">
 					<HeartPulse className="size-4 text-primary-600" />
 					<span className="text-sm font-semibold text-slate-900">NexaCare</span>
 				</Link>
@@ -232,7 +265,7 @@ export function AppShell() {
 
 			<main className="mt-14 lg:ml-60">
 				<div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-					<Outlet />
+					{children}
 				</div>
 			</main>
 		</div>
