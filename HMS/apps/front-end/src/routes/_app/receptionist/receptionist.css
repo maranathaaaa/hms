@@ -1,0 +1,25 @@
+/*
+ * Receptionist theme overrides.
+ * Change the values below to customize the look for this role.
+ */
+
+:root {
+  /* Accent color (buttons, links, active nav) */
+  --role-accent: #0284c7;
+  --role-accent-light: #f0f9ff;
+  --role-accent-hover: #0369a1;
+
+  /* Sidebar */
+  --role-sidebar-bg: #ffffff;
+  --role-sidebar-border: #bae6fd;
+  --role-sidebar-text: #475569;
+  --role-sidebar-active-bg: #f0f9ff;
+  --role-sidebar-active-text: #0369a1;
+
+  /* Header */
+  --role-header-bg: #ffffff;
+  --role-header-border: #bae6fd;
+
+  /* Page background */
+  --role-page-bg: #f0f9ff;
+}

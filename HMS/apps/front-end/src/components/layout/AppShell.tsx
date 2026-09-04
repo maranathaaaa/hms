@@ -161,9 +161,18 @@ export function AppShell({ children }: { children: ReactNode }) {
 	};
 
 	const sidebar = (
-		<aside className="flex h-full w-60 flex-col border-r border-slate-200 bg-white">
-			<div className="flex items-center gap-2.5 border-b border-slate-200 px-5 py-4">
-				<HeartPulse className="size-5 shrink-0 text-primary-600" />
+		<aside
+			className="flex h-full w-60 flex-col"
+			style={{
+				backgroundColor: "var(--role-sidebar-bg)",
+				borderRight: "1px solid var(--role-sidebar-border)",
+			}}
+		>
+			<div
+				className="flex items-center gap-2.5 px-5 py-4"
+				style={{ borderBottom: "1px solid var(--role-sidebar-border)" }}
+			>
+				<HeartPulse className="size-5 shrink-0" style={{ color: "var(--role-accent)" }} />
 				<div>
 					<p className="text-sm leading-tight font-semibold text-slate-900">
 						NexaCare
@@ -181,9 +190,14 @@ export function AppShell({ children }: { children: ReactNode }) {
 						to={item.to as never}
 						activeOptions={{ exact: true }}
 						activeProps={{
-							className: "bg-primary-50 text-primary-700 font-semibold",
+							style: {
+								backgroundColor: "var(--role-sidebar-active-bg)",
+								color: "var(--role-sidebar-active-text)",
+							},
+							className: "font-semibold",
 						}}
-						className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
+						className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-slate-100 hover:text-slate-900"
+						style={{ color: "var(--role-sidebar-text)" }}
 						onClick={() => setMenuOpen(false)}
 					>
 						<item.icon className="size-4 shrink-0" />
@@ -192,9 +206,12 @@ export function AppShell({ children }: { children: ReactNode }) {
 				))}
 			</nav>
 
-			<div className="border-t border-slate-200 px-3 py-3">
+			<div className="px-3 py-3" style={{ borderTop: "1px solid var(--role-sidebar-border)" }}>
 				<div className="flex items-center gap-3 rounded-lg px-2 py-1.5">
-					<div className="flex size-8 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-100 text-xs font-semibold text-slate-600">
+					<div
+						className="flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-slate-600"
+						style={{ border: "1px solid var(--role-sidebar-border)", backgroundColor: "var(--role-sidebar-active-bg)" }}
+					>
 						{initials(user.name)}
 					</div>
 					<div className="min-w-0 flex-1">
@@ -217,7 +234,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 	);
 
 	return (
-		<div className="min-h-screen bg-slate-50">
+		<div className="min-h-screen" style={{ backgroundColor: "var(--role-page-bg)" }}>
 			<div className="fixed inset-y-0 left-0 z-30 hidden lg:block">
 				{sidebar}
 			</div>
@@ -245,7 +262,10 @@ export function AppShell({ children }: { children: ReactNode }) {
 				</div>
 			) : null}
 
-			<header className="fixed inset-x-0 top-0 z-20 flex h-14 items-center gap-2 border-b border-slate-200 bg-white px-3 sm:px-4 lg:left-60">
+			<header
+				className="fixed inset-x-0 top-0 z-20 flex h-14 items-center gap-2 bg-white px-3 sm:px-4 lg:left-60"
+				style={{ borderBottom: "1px solid var(--role-header-border)", backgroundColor: "var(--role-header-bg)" }}
+			>
 				<button
 					type="button"
 					onClick={() => setMenuOpen(true)}

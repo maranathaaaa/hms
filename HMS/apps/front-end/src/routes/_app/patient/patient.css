@@ -1,0 +1,25 @@
+/*
+ * Patient theme overrides.
+ * Change the values below to customize the look for this role.
+ */
+
+:root {
+  /* Accent color (buttons, links, active nav) */
+  --role-accent: #7c3aed;
+  --role-accent-light: #f5f3ff;
+  --role-accent-hover: #6d28d9;
+
+  /* Sidebar */
+  --role-sidebar-bg: #ffffff;
+  --role-sidebar-border: #ddd6fe;
+  --role-sidebar-text: #475569;
+  --role-sidebar-active-bg: #f5f3ff;
+  --role-sidebar-active-text: #6d28d9;
+
+  /* Header */
+  --role-header-bg: #ffffff;
+  --role-header-border: #ddd6fe;
+
+  /* Page background */
+  --role-page-bg: #faf5ff;
+}

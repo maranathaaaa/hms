@@ -1,0 +1,25 @@
+/*
+ * Doctor theme overrides.
+ * Change the values below to customize the look for this role.
+ */
+
+:root {
+  /* Accent color (buttons, links, active nav) */
+  --role-accent: #059669;
+  --role-accent-light: #ecfdf5;
+  --role-accent-hover: #047857;
+
+  /* Sidebar */
+  --role-sidebar-bg: #ffffff;
+  --role-sidebar-border: #d1fae5;
+  --role-sidebar-text: #475569;
+  --role-sidebar-active-bg: #ecfdf5;
+  --role-sidebar-active-text: #047857;
+
+  /* Header */
+  --role-header-bg: #ffffff;
+  --role-header-border: #d1fae5;
+
+  /* Page background */
+  --role-page-bg: #f0fdf4;
+}

@@ -1,0 +1,25 @@
+/*
+ * Accountant theme overrides.
+ * Change the values below to customize the look for this role.
+ */
+
+:root {
+  /* Accent color (buttons, links, active nav) */
+  --role-accent: #d97706;
+  --role-accent-light: #fffbeb;
+  --role-accent-hover: #b45309;
+
+  /* Sidebar */
+  --role-sidebar-bg: #ffffff;
+  --role-sidebar-border: #fde68a;
+  --role-sidebar-text: #475569;
+  --role-sidebar-active-bg: #fffbeb;
+  --role-sidebar-active-text: #b45309;
+
+  /* Header */
+  --role-header-bg: #ffffff;
+  --role-header-border: #fde68a;
+
+  /* Page background */
+  --role-page-bg: #fffbeb;
+}

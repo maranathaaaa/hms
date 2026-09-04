@@ -1,0 +1,25 @@
+/*
+ * Super Admin theme overrides.
+ * Change the values below to customize the look for this role.
+ */
+
+:root {
+  /* Accent color (buttons, links, active nav) */
+  --role-accent: #4f46e5;
+  --role-accent-light: #eef2ff;
+  --role-accent-hover: #4338ca;
+
+  /* Sidebar */
+  --role-sidebar-bg: #ffffff;
+  --role-sidebar-border: #e2e8f0;
+  --role-sidebar-text: #475569;
+  --role-sidebar-active-bg: #eef2ff;
+  --role-sidebar-active-text: #4338ca;
+
+  /* Header */
+  --role-header-bg: #ffffff;
+  --role-header-border: #e2e8f0;
+
+  /* Page background */
+  --role-page-bg: #f8fafc;
+}
